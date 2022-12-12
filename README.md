@@ -14,3 +14,31 @@ elemento é igual à ordem de chegada  do cliente. Vamos imaginar uma lista inic
 para que ele seja inserido no fim da fila (fila.append(último)). Para retirarmos um cliente da  fila e atendê-lo, poderíamos fazer *del* fila.
 Se quisermos retirá-lo da fila e, ao mesmo tempo, obter o elemento retirado, podemos utilizar o método pop fila.pop(0).
 O método pop retorna o valor do elemento e o exclui da fila. Passamos 0 como parâmetro para indicar que queremos excluir o primeiro elemento.
+
+
+
+
+
+
+              #Programa 6.7 - Simulação de uma fila de banco
+último = 10
+fila = list(range(1, último + 1))
+while True :
+    print(f"\nExistem {len(fila)} clientes na fila")
+    print(f"Fila atual: {fila}")
+    print("Digite F para adicionar um cliente ao fim da fila,")
+    print("ou A para realizar o atendimento. S para sair.")
+    operação = input("Operação (F, A ou S):")
+    if operação == 'A':
+        if len(fila) > 0 :
+            atendido = fila.pop(0)
+            print(f'Cliente {atendido} atendido')
+        else:
+            print('fila vazia, ninguém pode atender')
+    elif operação == 'F' :
+        último += 1 #incrementa o ticket do novo cliente
+        fila.append(último)
+    elif operação == "S":
+        break
+    else:
+        print("Operação inválida! Digite apenas F, A ou S!")
